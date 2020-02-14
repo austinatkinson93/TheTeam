@@ -25,12 +25,6 @@ const employeePrompt = async () => {
             name: "managerId"
 
         },
-        {
-            type: "choice",
-            message: " Would you like to add additional team members?",
-            choice: ["Engineer", "Intern", "No additional team members to add"],
-            name: "moreTeam"
-        }
         ])
 
     return employeeResponse
@@ -41,14 +35,15 @@ const managerPrompt = async () => {
     let managerResponse = await inquirer
         .prompt([{
             type: "input",
-            messgae: "What school does the intern attend?"
-        },
-        {
-            type: "input",
             message: "What is the Managers Office Number?",
             name: "managersOfficeNumber"
         },
-        ])
+        {
+            type: "choice",
+            message: " Would you like to add additional team members?",
+            choice: ["Engineer", "Intern", "No additional team members to add"],
+            name: "moreTeam"
+        }])
 
     return managerResponse
 }
